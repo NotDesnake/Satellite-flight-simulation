@@ -54,8 +54,8 @@ public:
     double batteryLevel = 0.0;
 
     void ShowInfo() {
-        std::cout << "===Satellite '" << name << "' detail info===\n\n";
-        std::cout << "--Orbital and Main parametrs--" << std::endl;
+        std::cout << "\033[1m===Satellite '" << name << "' detail info===\033[0m\n\n";
+        std::cout << "\033[1m--Orbital and Main parametrs--\033[0m" << std::endl;
         std::cout << "Satellite name: " << name << std::endl;
         std::cout << "Mass: " << mass << std::endl;
         std::cout << "Fuel mass: " << fuelMass << std::endl;
@@ -83,7 +83,7 @@ public:
         std::cout << "Power Generation Rate: " << powerGemerationRate << "\n";
         std::cout << "Elevation Angle: " << eA << "\n\n";
 
-        std::cout << "--Others paraments--" << std::endl;
+        std::cout << "\033[1m--Others paraments--\033[0m" << std::endl;
         std::cout << "Position: x" << position[0] << " y" << position[1] << " z" << position[2] << std::endl;
         std::cout << "Velocity: x" << velocity[0] << " y" << velocity[1] << " z" << velocity[2] << std::endl;
         std::cout << "Orientation: x" << orientation[0] << " y" << orientation[1] << " z" << orientation[2] << std::endl;
@@ -114,14 +114,13 @@ public:
         std::cout << "Eccentricity: "
             << std::fixed
             << std::setprecision(12)
-            << getEccentricity()
-            << std::endl;
+            << getEccentricity();
 
         std::cout.unsetf(std::ios_base::floatfield);
         std::cout << std::setprecision(6);
 
         if (getEccentricity() >= 0.025 or getEccentricity() <= 0.0) {
-            std::cout << " (CRITICAL!)\n";
+            std::cout << "\033[31m\033[5m (CRITICAL!)\033[0m\n";
         }
         else {
             std::cout << "\n";
@@ -130,7 +129,7 @@ public:
         std::cout << "Orbital Period: " << getOrbitalPeriod() << std::endl;
         std::cout << "Specific Energy: " << getSpecificEnergy() << "\n\n";
 
-        std::cout << "--General features--\n";
+        std::cout << "\033[1m--General features--\033[0m\n";
         std::cout << "Total Mass: " << getTotalMass() << std::endl;
         std::cout << "Orbital Speed: " << GetOrbitalSpeed() << std::endl;
         std::cout << "Estimated Lifetime: " << estimatedLifetime << std::endl;
