@@ -141,9 +141,10 @@
   <ItemGroup>
     <ClCompile Include="..\..\EvolutionSimulation\glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="visualization.cpp" />
+    <ClCompile Include="satellite_visualization.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MannedSpacecraft.h" />
     <ClInclude Include="Satellite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

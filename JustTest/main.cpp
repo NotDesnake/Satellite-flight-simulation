@@ -20,6 +20,10 @@ void Visualization(Satellite& sat);
 HWND consoleWindow = GetConsoleWindow();
 std::vector<std::string> typeOfSpacecraft;
 
+void MannedSpacecraftSettings(Satellite& sat, int argc, char* argv[]) {
+
+}
+
 
 void SatellteSettings(Satellite& sat, int argc, char* argv[]) {
 	std::string temp;
@@ -32,7 +36,7 @@ void SatellteSettings(Satellite& sat, int argc, char* argv[]) {
 	bool bl;
 
 	auto Title = [&]() -> int {
-		boost::nowide::cout << "\033[94m"
+		boost::nowide::cout << "\033[32m"
 			<< "  ██████╗███████╗████████╗████████╗██╗███╗   ██╗ ██████╗ ██████╗ \n"
 			<< " ██╔════╝██╔════╝╚══██╔══╝╚══██╔══╝██║████╗  ██║██╔════╝██╔════╝ \n"
 			<< " ╚█████╗ █████╗     ██║      ██║   ██║██╔██╗ ██║██║  ███╗╚█████╗ \n"
@@ -337,7 +341,7 @@ void MainMenu(Satellite& sat, int argc, char* argv[]) {
 
 	system("cls");
 
-	boost::nowide::cout << "\033[94m" 
+	boost::nowide::cout << "\033[32m" 
 		<< " ██████╗ ██████╗  ██████╗       ██╗███████╗ ██████╗████████╗    ███████╗ ██████╗██╗     ██╗██████╗  ███████╗███████╗\n"
 		<< " ██╔══██╗██╔══██╗██╔═══██╗      ██║██╔════╝██╔════╝╚══██╔══╝    ██╔════╝██╔════╝██║     ██║██╔══██╗██╔════╝██╔════╝\n"
 		<< " ██████╔╝██████╔╝██║   ██║      ██║█████╗  ██║        ██║       █████╗  ██║     ██║     ██║██████╔╝███████╗█████╗  \n"
@@ -347,7 +351,7 @@ void MainMenu(Satellite& sat, int argc, char* argv[]) {
 		<< "\033[0m";
 
 	boost::nowide::cout << "\033[90m ┌──────────────────────────────────────────────────────────────────────────────┐\033[0m\n";
-	boost::nowide::cout << "\033[96m   ► SIMULATION OF SPACECRAFT FLIGHTS BY @DESNAKE | INITIALIZATION INTERFACE ◄                      \033[0m\n";
+	boost::nowide::cout << "\033[96m   ► SIMULATION OF SPACECRAFT FLIGHTS BY @DESNAKE ◄                      \033[0m\n";
 	boost::nowide::cout << "\033[90m └──────────────────────────────────────────────────────────────────────────────┘\033[0m\n\n";
 
 	boost::nowide::cout << "\033[33m ┌── SELECT SPACECRAFT TYPE ──────────────────────────────────────────────────┐\033[0m\n";
@@ -398,6 +402,9 @@ void MainMenu(Satellite& sat, int argc, char* argv[]) {
 	}
 
 	if (user_answer == 1) {
+		SatellteSettings(sat, argc, argv);
+	}
+	if (user_answer == 2) {
 		SatellteSettings(sat, argc, argv);
 	}
 }
